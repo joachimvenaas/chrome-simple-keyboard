@@ -28,7 +28,7 @@ jobs:
         cd build && zip -r chrome-simple-keyboard.zip ./* && cd ..
         mv build/chrome-simple-keyboard.zip chrome-simple-keyboard.zip
     - name: Archive extension
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Extension
         path: chrome-simple-keyboard.zip
