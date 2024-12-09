@@ -75,6 +75,19 @@ function setup() {
         }, true);
     });
 
+    // Handle iframes
+    let iframes = document.querySelectorAll("iframe");
+    iframes.forEach(iframe => {
+        iframe.contentWindow.addEventListener('focus', event => {
+            if (event.target.matches(querySelector)) {
+                onFocus(event.target);
+            }
+        }, true);
+        iframe.contentWindow.addEventListener('blur', () => {
+            onFocusOut();
+        }, true);
+    });
+
     keyboard = new Keyboard({
         onKeyPress: button => onKeyPress(button),
         onKeyReleased: button => onKeyRelease(button),
